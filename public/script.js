@@ -1,4 +1,5 @@
 // DOM elements
+const API_URL='https://career-advisor-api.onrender.com';
 const careerForm = document.getElementById('careerForm');
 const submitBtn = document.getElementById('submitBtn');
 const loading = document.getElementById('loading');
@@ -26,7 +27,7 @@ async function getCareerRecommendations(skills, interests) {
     try {
         showLoading();
         
-        const response = await fetch('/api/recommend', {
+        const response = await fetch('${API_URL}/api/recommend', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ skills, interests })
